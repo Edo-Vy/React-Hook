@@ -23,7 +23,7 @@ export default function DemoUseNumber(props) {
           //   };
           //   dispatch(action);
 
-          // cách 2 :
+          // cách 2 : action creator
           const action = changeNumber(number + 1);
           dispatch(action);
         }}

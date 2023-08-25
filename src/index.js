@@ -15,6 +15,7 @@ import UseRefDemo from './components/HeaderHome/UseRefDemo/UseRefDemo';
 import { Provider } from 'react-redux'
 import { store } from './redux/configStore';
 import DemoUseNumber from './pages/HooksDemo/UseRedux/DemoUseNumber/DemoUseNumber';
+import { DemoFaceBookApp } from './pages/HooksDemo/UseRedux/DemoFaceBookApp/DemoFaceBookApp';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
@@ -31,6 +32,7 @@ root.render(
           <Route path='usememo' element={<UseMemoDemo />}></Route>
           <Route path='useref' element={<UseRefDemo />}></Route>
           <Route path='demonumber' element={<DemoUseNumber/>}></Route>
+          <Route path='reduxfacebook' element={<DemoFaceBookApp/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

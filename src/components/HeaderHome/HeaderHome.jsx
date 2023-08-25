@@ -75,6 +75,9 @@ export default function HeaderHome(props) {
                 <NavLink className="dropdown-item" to="/demonumber">
                   Redux Number
                 </NavLink>
+                <NavLink className="dropdown-item" to="/reduxfacebook">
+                  Redux Facebook
+                </NavLink>
               </div>
             </li>
             {/* === */}

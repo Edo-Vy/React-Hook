@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = 1; // state mặc định
 
 const numberReducer = createSlice({
-  name: "numberReducer",
+  name: "numberReducer", // tạo ra action.type dựa trên const numberReducer = createSlice({
   initialState,
   reducers: {
     changeNumber: (state, action) => {

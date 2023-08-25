@@ -21,6 +21,8 @@
 // redux-toolkit
 
 import { configureStore } from "@reduxjs/toolkit";
+// export default sẽ ko có {}
+import facebookReducer from "./reducers/facebookReducer";
 import numberReducer from "./reducers/numberReducer";
 
 export const store = configureStore({
@@ -29,7 +31,7 @@ export const store = configureStore({
     //   switch (action.type) {
     //     case "CHANGE_NUMBER": {
     //       state = action.payload;
-    //       return state;
+    //       return state; // đặt ob thì ko cần return
 
     //     }
     //     default:
@@ -37,5 +39,6 @@ export const store = configureStore({
     //   }
     // },
     number: numberReducer,
+    facebook: facebookReducer,
   },
 });
