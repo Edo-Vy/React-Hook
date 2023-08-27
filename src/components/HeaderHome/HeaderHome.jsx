@@ -21,9 +21,9 @@ export default function HeaderHome(props) {
         <div className="collapse navbar-collapse" id="collapsibleNavId">
           <ul className="navbar-nav me-auto mt-2 mt-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" href="#" aria-current="page">
-                Home <span className="visually-hidden">(current)</span>
-              </a>
+              <NavLink className="nav-link active" to="/" aria-current="page">
+                Home 
+              </NavLink>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
@@ -78,6 +78,26 @@ export default function HeaderHome(props) {
                 <NavLink className="dropdown-item" to="/reduxfacebook">
                   Redux Facebook
                 </NavLink>
+              </div>
+            </li>
+            {/* === */}
+            {/* === */}
+            <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="dropdownId"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Router Hook
+              </NavLink>
+              <div className="dropdown-menu" aria-labelledby="dropdownId">
+                <NavLink className="dropdown-item" to="/reactform">
+                  Demo Navigate
+                </NavLink>
+                
               </div>
             </li>
             {/* === */}

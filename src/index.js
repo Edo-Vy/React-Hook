@@ -16,6 +16,10 @@ import { Provider } from 'react-redux'
 import { store } from './redux/configStore';
 import DemoUseNumber from './pages/HooksDemo/UseRedux/DemoUseNumber/DemoUseNumber';
 import { DemoFaceBookApp } from './pages/HooksDemo/UseRedux/DemoFaceBookApp/DemoFaceBookApp';
+import ReactForm from './pages/HooksRoutes/ReactForm/ReactForm';
+import Profile from './pages/HooksRoutes/ReactForm/Profile';
+import Home from './pages/Home/Home';
+import Detail from './pages/Detail/Detail';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
@@ -26,6 +30,12 @@ root.render(
       <Routes>
         <Route path='' element={<App />}>
           {/* Đặt thẻ <Outlet/> bên thẻ App.js để link tới path con */}
+          <Route index element={<Home/>}></Route>
+          {/*  path=':id' -- id: tự đặt gì cũng được => ( nhớ) = lấy tham số url xuống */}
+          <Route path='detail'>
+            <Route path=':id' element={<Detail/>}></Route>
+          </Route>
+
           <Route path='usestate' element={<UseStateDemo />}></Route>
           <Route path='useeffect' element={<UseEffectDemo />}></Route>
           <Route path='usecallback' element={<UseCallBackDemo />}></Route>
@@ -33,6 +43,8 @@ root.render(
           <Route path='useref' element={<UseRefDemo />}></Route>
           <Route path='demonumber' element={<DemoUseNumber/>}></Route>
           <Route path='reduxfacebook' element={<DemoFaceBookApp/>}></Route>
+          <Route path='reactform' element={<ReactForm/>}></Route>
+          <Route path='profile' element={<Profile/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
