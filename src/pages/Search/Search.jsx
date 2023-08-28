@@ -106,6 +106,7 @@ export default function Search(props) {
             className="form-control"
             id="keyword"
             onChange={handleChange}
+            value={searchParams.get("q")}
             // value={keyword} // navigate(`/search?q=${keyword}`); //TH1
           />
           <button className="btn bg-dark text-white mt-3">Search</button>
