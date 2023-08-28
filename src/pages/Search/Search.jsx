@@ -1,7 +1,7 @@
 //rfc
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 
 let timeout = null;
 export default function Search(props) {
@@ -124,7 +124,7 @@ export default function Search(props) {
                 <div className="card-body bg-dark text-light">
                   <p>{item.name}</p>
                   <p>{item.price}$</p>
-                  <button className="btn btn-success">View detail</button>
+                  <NavLink className="btn btn-success" to={`/detail/${item.id}`}>View detail</NavLink>
                 </div>
               </div>
             );
