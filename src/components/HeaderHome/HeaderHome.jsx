@@ -1,8 +1,11 @@
 // rfc
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function HeaderHome(props) {
+
+  // search
+  const navigate = useNavigate(); // dùng useNavigate để chuyển hướng headHome
   return (
     <div>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -102,11 +105,17 @@ export default function HeaderHome(props) {
             </li>
             {/* === */}
           </ul>
-          <form className="d-flex my-2 my-lg-0">
+          <form className="d-flex my-2 my-lg-0" onSubmit={(e) =>{
+            e.preventDefault();
+            const keyword = document.querySelector('#keyword').value;
+
+            navigate(`/search?q=${keyword}`); // q: query
+          }}>
             <input
               className="form-control me-sm-2"
               type="text"
               placeholder="Search"
+              id="keyword"
             />
             <button
               className="btn btn-outline-success my-2 my-sm-0"

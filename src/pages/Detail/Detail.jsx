@@ -82,6 +82,6 @@ export default function Detail(props) {
 }
 
 /**
- * useParams
+ * useParams : truyền tham số từ link này qua link khác 
  * Id : {params.id}  : id (  path=':id' element={<Detail/>)
  */

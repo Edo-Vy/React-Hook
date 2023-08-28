@@ -20,6 +20,7 @@ import ReactForm from './pages/HooksRoutes/ReactForm/ReactForm';
 import Profile from './pages/HooksRoutes/ReactForm/Profile';
 import Home from './pages/Home/Home';
 import Detail from './pages/Detail/Detail';
+import Search from './pages/Search/Search';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
@@ -45,6 +46,7 @@ root.render(
           <Route path='reduxfacebook' element={<DemoFaceBookApp/>}></Route>
           <Route path='reactform' element={<ReactForm/>}></Route>
           <Route path='profile' element={<Profile/>}></Route>
+          <Route path='search' element={<Search/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
