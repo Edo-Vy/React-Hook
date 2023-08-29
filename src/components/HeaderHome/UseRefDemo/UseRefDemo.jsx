@@ -83,3 +83,13 @@ export default function UseRefDemo() {
  * (useRef dùng để lưu giá trị sau mỗi lần render)
  * useref thường sủ dụng cho các form không có Validation hoặc load dữ liệu chỉnh sửa
  */
+
+/*
+    +useRef: 
+        Tương tự useState dùng để lưu lại giá trị sau mỗi lần component render, tuy nhiên khi ref thay đổi thì giao diện không phải render lại.
+        Ngoài ra useRef còn dùng để truy xuất đến thẻ khi gắn vào thuộc ref của thẻ (JSX Element)
+    + useRef vs useState
+        useRef dùng để lưu giá trị sau mỗi lần component render tuy nhiên không làm cho component khi thay đổi giá trị
+        useState dùng để lưu lại giá trị sau mỗi lần component render tuy nhiên sau khi setState thì component sẽ render lại 
+
+*/

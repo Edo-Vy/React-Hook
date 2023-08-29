@@ -24,6 +24,7 @@ import { configureStore } from "@reduxjs/toolkit";
 // export default sẽ ko có {}
 import facebookReducer from "./reducers/facebookReducer";
 import numberReducer from "./reducers/numberReducer";
+import productReducer from "./reducers/productReducer";
 
 export const store = configureStore({
   reducer: {
@@ -40,5 +41,6 @@ export const store = configureStore({
     // },
     number: numberReducer,
     facebook: facebookReducer,
+    productReducer: productReducer,
   },
 });

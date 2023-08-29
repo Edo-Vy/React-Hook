@@ -2,9 +2,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-
+import {useSelector} from 'react-redux'
 export default function Home(props) {
-  const [arrProduct, setArrProduct] = useState([]);
+
+  // const [arrProduct, setArrProduct] = useState([]);
+
+  // Gọi api từ config store
+  const { arrProduct } = useSelector ( state => state.productReducer); // bóc tách phần tử
 
   const getApiProduct = async () => {
     try {
@@ -16,7 +20,7 @@ export default function Home(props) {
       console.log("Kết Quả", result.data.content);
 
       // Sau khi lấy kết quả từ api về đưa vào state arrProduct
-      setArrProduct(result.data.content);
+      // setArrProduct(result.data.content);
     } catch (erro) {
       console.log(erro);
     }

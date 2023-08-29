@@ -60,6 +60,12 @@ export default function HeaderHome(props) {
                 <NavLink className="dropdown-item" to="/useref">
                   UseRef Demo
                 </NavLink>
+                <NavLink className="dropdown-item" to="/customhook">
+                  Custom Hook (useRoute)
+                </NavLink>
+                <NavLink className="dropdown-item" to="/animation">
+                  Custom Hook (animation)
+                </NavLink>
               </div>
             </li>
             {/* === */}
