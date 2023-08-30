@@ -1,28 +1,40 @@
 // rfc
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
+import { getApiProductDetailAction } from "../../redux/reducers/productReducer";
 
 export default function Detail(props) {
-  const [proDetail, setProDetail] = useState({});
+  // const [proDetail, setProDetail] = useState({});
+  // Lấy từ redux về
+  const {proDetail} = useSelector(state => state.productReducer)
 
   const params = useParams();
+  const dispatch = useDispatch();
 
-  const getApiProductDetail = async () => {
-    try {
-      // bắt lỗi
-      let result = await axios({
-        url: "https://shop.cyberlearn.vn/api/Product/getbyid?id=" + params.id,
-        method: "GET",
-      });
-      console.log("Kết Quả", result.data.content);
+  // const getApiProductDetail = async () => {
+  //   try {
+  //     // bắt lỗi
+  //     let result = await axios({
+  //       url: "https://shop.cyberlearn.vn/api/Product/getbyid?id=" + params.id,
+  //       method: "GET",
+  //     });
+  //     console.log("Kết Quả", result.data.content);
 
-      // Sau khi lấy kết quả từ api về đưa vào state proDetail
-      setProDetail(result.data.content);
-      console.log(proDetail);
-    } catch (erro) {
-      console.log(erro);
-    }
+  //     // Sau khi lấy kết quả từ api về đưa vào state proDetail
+  //     setProDetail(result.data.content);
+  //     console.log(proDetail);
+  //   } catch (erro) {
+  //     console.log(erro);
+  //   }
+  // };
+// action
+  const getApiProductDetail = () => {
+   
+    const actionThunk = getApiProductDetailAction(params.id);
+    dispatch(actionThunk);
+    
   };
 
   useEffect(() => {
