@@ -51,7 +51,7 @@ export default function UseStateDemo() {
 /** == Cách dùng {useState}
  * Truyền cho nó tham số mặc định_useState(1) : khi gọi hàm này sẽ trả về 1 mảng có 2 phần tử
  *
- * + const result = useSate(1) ===> thường sẽ ko viết theo cách này
+ * + const result = useState(1) ===> thường sẽ ko viết theo cách này
  *      => phần tử thứ nhất là state ban đầu useSate(1)
  *      => phần tử thứ 2 là hàm set lại state đó
  *      Để binding ra - <h3> Number {result[0]}</h3> => lấy ra đk số Number : 1

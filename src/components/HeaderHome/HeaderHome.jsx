@@ -29,6 +29,11 @@ export default function HeaderHome(props) {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link active" to="/login" aria-current="page">
+                Login
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="#">
                 Link
               </a>

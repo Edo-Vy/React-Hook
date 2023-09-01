@@ -28,3 +28,5 @@ export default function useCookie(cookieName, valueDefault) {
   // }
   return [setCookie, getCookie];
 }
+
+// Hook chỉ dùng trong React function component
