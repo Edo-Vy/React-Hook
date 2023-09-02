@@ -7,27 +7,27 @@ export const configs = {
 
         localStorage.setItem(name, values)
     },
-    getStote: (name) => {
+    getStore: (name) => {
 
-        localStorage.getItem(name)
+        return localStorage.getItem(name)
 
     },
-    setStoreJSX: (name, values) => {
+    setStoreJSON: (name, values) => {
         // Biến đổi thành chuỗi
         values = JSON.stringify(values);
         // Lưu vào store
         localStorage.setItem(name, values);
     },
-    getStoreJSX: (name, values) => {
+    getStoreJSON: (name) => {
 
-        if (localStorage.setItem(name)) {
+        if (localStorage.getItem(name)) {
 
             let content = JSON.parse(localStorage.getItem(name));
             return content;
         }
         return null;
     },
-    setCookie: (value , days = 30, name ) => {
+    setCookie: (value, days = 30, name) => {
         var expires = "";
         if (days) {
             var date = new Date();
@@ -52,7 +52,7 @@ export const configs = {
 }
 
 
-export const { setStore, getStote, setStoreJSX, getStoreJSX, setCookie, getCookie, ACCESS_TOKEN, USER_LOGIN } = configs;
+export const { setStore, getStore, setStoreJSON, getStoreJSON, setCookie, getCookie, ACCESS_TOKEN, USER_LOGIN } = configs;
 /** Hàm có thể gọi bất cứ đâu
  *  Hook chỉ gọi được trong FCC
  */

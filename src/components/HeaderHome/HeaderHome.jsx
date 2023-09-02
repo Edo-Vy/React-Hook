@@ -1,11 +1,28 @@
 // rfc
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export default function HeaderHome(props) {
-
   // search
   const navigate = useNavigate(); // dùng useNavigate để chuyển hướng headHome
+  const { userLogin } = useSelector((state) => state.userReducer); // Login
+
+  // render Login
+  const renderNavLink = () => {
+    if (userLogin) {
+      return (
+        <NavLink className="nav-link active" to="/profile" aria-current="page">
+          Hello ! {userLogin.email}
+        </NavLink>
+      );
+    }
+    return (
+      <NavLink className="nav-link active" to="/login" aria-current="page">
+        Login
+      </NavLink>
+    );
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -25,14 +42,10 @@ export default function HeaderHome(props) {
           <ul className="navbar-nav me-auto mt-2 mt-lg-0">
             <li className="nav-item">
               <NavLink className="nav-link active" to="/" aria-current="page">
-                Home 
+                Home
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link active" to="/login" aria-current="page">
-                Login
-              </NavLink>
-            </li>
+            <li className="nav-item">{renderNavLink()}</li>
             <li className="nav-item">
               <a className="nav-link" href="#">
                 Link
@@ -111,17 +124,19 @@ export default function HeaderHome(props) {
                 <NavLink className="dropdown-item" to="/reactform">
                   Demo Navigate
                 </NavLink>
-                
               </div>
             </li>
             {/* === */}
           </ul>
-          <form className="d-flex my-2 my-lg-0" onSubmit={(e) =>{
-            e.preventDefault();
-            const keyword = document.querySelector('#keyword').value;
+          <form
+            className="d-flex my-2 my-lg-0"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const keyword = document.querySelector("#keyword").value;
 
-            navigate(`/search?q=${keyword}`); // q: query
-          }}>
+              navigate(`/search?q=${keyword}`); // q: query
+            }}
+          >
             <input
               className="form-control me-sm-2"
               type="text"
