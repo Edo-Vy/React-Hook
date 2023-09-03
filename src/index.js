@@ -24,20 +24,29 @@ import Search from './pages/Search/Search';
 import DemoUseRoute from './pages/DemoUseRoute/DemoUseRoute';
 import DemoAnimation from './pages/DemoAnimation/DemoAnimation';
 import Login from './pages/Login/Login';
+
+// Tạo ra 1 biến để quản lý chuyển hướng trang ( npm i history )
+import { createBrowserHistory } from 'history';
+import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom'
+export const history = createBrowserHistory();
+
+//=======
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-
 
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
+    <HistoryRouter history={history}>
+      {/* history ~ useNavigate. Nhưng hay hơn vì history có thể chuyển hướng trang khi không phải là RFC,
+          xử lý đăng nhập -> có thể dùng history
+      */}
       <Routes>
         <Route path='' element={<App />}>
           {/* Đặt thẻ <Outlet/> bên thẻ App.js để link tới path con */}
-          <Route index element={<Home/>}></Route>
+          <Route index element={<Home />}></Route>
           {/*  path=':id' -- id: tự đặt gì cũng được => ( nhớ) = lấy tham số url xuống */}
           <Route path='detail'>
-            <Route path=':id' element={<Detail/>}></Route>
+            <Route path=':id' element={<Detail />}></Route>
           </Route>
 
           <Route path='usestate' element={<UseStateDemo />}></Route>
@@ -45,17 +54,18 @@ root.render(
           <Route path='usecallback' element={<UseCallBackDemo />}></Route>
           <Route path='usememo' element={<UseMemoDemo />}></Route>
           <Route path='useref' element={<UseRefDemo />}></Route>
-          <Route path='demonumber' element={<DemoUseNumber/>}></Route>
-          <Route path='reduxfacebook' element={<DemoFaceBookApp/>}></Route>
-          <Route path='reactform' element={<ReactForm/>}></Route>
-          <Route path='profile' element={<Profile/>}></Route>
-          <Route path='search' element={<Search/>}></Route>
-          <Route path='customhook' element={<DemoUseRoute/>}></Route>
-          <Route path='animation' element={<DemoAnimation/>}></Route>
-          <Route path='login' element={<Login/>}></Route>
+          <Route path='demonumber' element={<DemoUseNumber />}></Route>
+          <Route path='reduxfacebook' element={<DemoFaceBookApp />}></Route>
+          <Route path='reactform' element={<ReactForm />}></Route>
+          <Route path='profile' element={<Profile />}></Route>
+          <Route path='search' element={<Search />}></Route>
+          <Route path='customhook' element={<DemoUseRoute />}></Route>
+          <Route path='animation' element={<DemoAnimation />}></Route>
+          <Route path='login' element={<Login />}></Route>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
+    {/* </BrowserRouter> */}
   </Provider>
 );
 

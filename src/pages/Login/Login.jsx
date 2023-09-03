@@ -27,8 +27,7 @@ export default function Login(props) {
     }),
     // matches(/cyber/,'password phải có cyber') : regular expression 
     onSubmit: (values) => {
-      console.log(values);
-
+      // console.log(values);
       const action = signinApi(values);  // userReducer
       // signinApi : nhận vào giá trị của email và password từ người dùng nhập
       dispatch(action);

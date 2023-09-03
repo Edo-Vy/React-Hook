@@ -19,12 +19,15 @@ export default function Profile(props) {
 
   // ? Optional changing
   // ordersHistory = undefine.map????
+  //userLogin: getStoreJSON(USER_LOGIN) : null : khi chưa đăng nhập => ?. để
+
+  // userLogin khi chưa đăng nhập sẽ có giá trị null -> báo lỗi => ?.
   const renderOrderHistory = () => {
-    return userLogin.ordersHistory?.map((order, index) => {
+    return userLogin?.ordersHistory?.map((order, index) => {
       return (
         <div className="orderDetai" key={index}>
           <h3>
-            Order Detail {moment(order.date).format("DD/MM/YYYY hh:mm:ss A")}
+            Order Detail {moment(order?.date).format("DD/MM/YYYY hh:mm:ss A")}
           </h3>
           <table className="table">
             <thead>
@@ -38,7 +41,7 @@ export default function Profile(props) {
               </tr>
             </thead>
             <tbody>
-              {order.orderDetail.map((item, index) => {
+              {order?.orderDetail.map((item, index) => {
                 return (
                   <tr key={index}>
                     <td>{item.id}</td>
@@ -64,9 +67,9 @@ export default function Profile(props) {
       <div className="d-flex">
         <div className="w-25">
           <div className="profile mt-3">
-            <img src={userLogin.avatar} height={200} />
-            <div> Email : {userLogin.email}</div>
-            <div> Name : {userLogin.name}</div>
+            <img src={userLogin?.avatar} height={200} />
+            <div> Email : {userLogin?.email}</div>
+            <div> Name : {userLogin?.name}</div>
           </div>
         </div>
         <div className="w-75">

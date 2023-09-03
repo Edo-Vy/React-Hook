@@ -2,6 +2,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
+import {
+  ACCESS_TOKEN,
+  clearCookie,
+  clearLocalStorage,
+  USER_LOGIN,
+} from "../../util/config";
 
 export default function HeaderHome(props) {
   // search
@@ -12,9 +18,35 @@ export default function HeaderHome(props) {
   const renderNavLink = () => {
     if (userLogin) {
       return (
-        <NavLink className="nav-link active" to="/profile" aria-current="page">
-          Hello ! {userLogin.email}
-        </NavLink>
+        <>
+          <li>
+            <NavLink
+              className="nav-link active"
+              to="/profile"
+              aria-current="page"
+            >
+              Hello ! {userLogin.email}
+            </NavLink>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="nav-link"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                clearLocalStorage(USER_LOGIN);
+                clearLocalStorage(ACCESS_TOKEN);
+                clearCookie(USER_LOGIN);
+                clearCookie(ACCESS_TOKEN);
+                // F5 reload lại trang
+                // window.location.reload();
+                window.location.href = '/'; // clear redux 
+              }}
+            >
+              Đăng Xuất
+            </a>
+          </li>
+        </>
       );
     }
     return (
@@ -45,7 +77,8 @@ export default function HeaderHome(props) {
                 Home
               </NavLink>
             </li>
-            <li className="nav-item">{renderNavLink()}</li>
+            {renderNavLink()}
+
             <li className="nav-item">
               <a className="nav-link" href="#">
                 Link
