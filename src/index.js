@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // Cấu hình BrowserRouter
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import UseStateDemo from './pages/HooksDemo/UseStateDemo/UseStateDemo';
 import UseEffectDemo from './pages/HooksDemo/UesEffectDemo/UseEffectDemo';
 import UseCallBackDemo from './pages/HooksDemo/UseCallBackDemo/UseCallBackDemo';
@@ -28,6 +28,10 @@ import Login from './pages/Login/Login';
 // Tạo ra 1 biến để quản lý chuyển hướng trang ( npm i history )
 import { createBrowserHistory } from 'history';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom'
+import DemoHOC from './pages/DemoHOC/DemoHOC';
+import AdminTemplates from './templates/AdminTemplates';
+import UserManagement from './pages/Admin/UserManagement/UserManagement';
+import ProductManagement from './pages/Admin/ProductManagement/ProductManagement';
 export const history = createBrowserHistory();
 
 //=======
@@ -62,8 +66,18 @@ root.render(
           <Route path='customhook' element={<DemoUseRoute />}></Route>
           <Route path='animation' element={<DemoAnimation />}></Route>
           <Route path='login' element={<Login />}></Route>
+
+          {/* Route HOC */}
+          <Route path='demohoc' element={<DemoHOC />}></Route>
+
+          {/* Khi gõ đường dẫn không tồn tại thì chuyển hướng trang */}
+          <Route path='*' element={<Navigate to={"/"} />}></Route>
         </Route>
+        {/* Route Admin */}
+        <Route path='users' element={<AdminTemplates Component={UserManagement} />}></Route>
+        <Route path='products' element={<AdminTemplates Component={ProductManagement} />}></Route>
       </Routes>
+
     </HistoryRouter>
     {/* </BrowserRouter> */}
   </Provider>
@@ -72,3 +86,8 @@ root.render(
 reportWebVitals();
 
 //  <React.StrictMode> : ràng buộc những nguyên tắc code cho đúng, code hosting dễ gây ra hay báo lỗi
+
+// HOF : higher or function
+/** Modals : có thể sử dụng cho nhiều tính nắng, chức năng cho ứng dụng
+ * 
+ */

@@ -39,7 +39,7 @@ export default function HeaderHome(props) {
                 clearCookie(USER_LOGIN);
                 clearCookie(ACCESS_TOKEN);
                 // F5 reload lại trang
-                // window.location.reload();
+                // window.location.reload(); // vẫn còn lưu ở redux
                 window.location.href = '/'; // clear redux 
               }}
             >
@@ -80,9 +80,9 @@ export default function HeaderHome(props) {
             {renderNavLink()}
 
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
+              <NavLink className="nav-link" to="/demohoc">
+                Demo HOC
+              </NavLink>
             </li>
             <li className="nav-item dropdown">
               <NavLink
