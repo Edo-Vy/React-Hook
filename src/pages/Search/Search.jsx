@@ -23,7 +23,7 @@ export default function Search(props) {
           url: `https://shop.cyberlearn.vn/api/Product?keyword=${searchParams.get(
             "q"
           )}`,
-          method: "GET",
+          method : "GET",
         });
         // B3 : Sau khi lấy api thành công  về -> state thay đổi -> giao diện render lại ( kết thúc lần 1)
         setArrProduct(result.data.content);

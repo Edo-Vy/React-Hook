@@ -1,10 +1,12 @@
 // rfc
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import HocModal from '../HOC/HocModal'
 
 export default function AdminTemplates(props) {  // props.component
   return (
     <div>
+        <HocModal/>
         <h3 style={{backgroundColor :'gray', color:'white', height:'50px'}}>Admin Template</h3>
         <div className='d-flex'>
             <div className='dashboard w-25 bg-dark' style={{minHeight: '100vh'}}>
